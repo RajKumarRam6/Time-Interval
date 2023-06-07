@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var count = 0;
+        function Loading() {
+            count++
+            document.getElementById("status").innerHTML = count + "%";
+            if (count == 100) {
+                document.getElementById("statusContainer").style.display = "none";
+                document.getElementById("ImageContainer").style.display = "block";
+            }
+        }
+        function FetchClick() {
+            document.getElementById("FetchContainer").style.display = "block";
+            document.getElementById("statusContainer").style.display = "block";
+            setInterval(Loading, 100);
+        }
+    </script>
+</head>
+
+<body class="container-fluid d-flex justify-content-center align-items-center" style="height:500px;">
+    <div>
+        <div id="FetchContainer" class="text-center">
+            <button onclick="FetchClick()" class="btn btn-primary">Fetch Image</button>
+        </div>
+        <div id="statusContainer" class="text-center" style="display:none;">
+            <div class="spinner-border"></div>
+            <p id="status"></p>
+            <p>Loading..</p>
+        </div>
+        <div id="ImageContainer" style="display:none;">
+            <img src="/images/realme.jpg" width="300" height="300">
+        </div>
+    </div>
+
+</body>
+
+</html>
